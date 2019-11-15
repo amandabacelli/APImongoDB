@@ -1,6 +1,8 @@
 const express = require("express")
 const mongoose = require("mongoose")
+const bodyParse = require("body-parser")
 const app = express()
+
 
 //configurar o banco de dados, colocar o caminho que é feito no robo3t
 mongoose.connect("mongodb://localhost:27017/reprograma", {useNewUrlParser:true})
@@ -16,7 +18,8 @@ const index = require("./routes/index")
 const alunas = require("./routes/alunasRoute")
 const professoras = require("./routes/professorasRoute")
 
-app.use(express.json());
+// app.use(express.json())
+app.use(bodyParse.json()) //transformar o body em json
 
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*")
