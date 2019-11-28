@@ -13,7 +13,7 @@ const AlunasSchema = new mongoose.Schema({
     }]
 })
     {
-        versionKey: false
+        versionKey: false //tirar o _v do banco de dados
     }
 
 const Alunas = mongoose.model('Alunas', AlunasSchema)
